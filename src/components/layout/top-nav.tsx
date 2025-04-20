@@ -1,13 +1,9 @@
 
-import {
-  Bell,
-  Menu,
-  Search,
-  User,
-} from "lucide-react";
+import { Bell, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,24 +14,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-interface TopNavProps {
-  sidebarOpen: boolean;
-  setSidebarOpen: (open: boolean) => void;
-}
-
-export function TopNav({ sidebarOpen, setSidebarOpen }: TopNavProps) {
+export function TopNav() {
   return (
     <header className="border-b bg-card z-10">
       <div className="flex items-center justify-between h-16 px-4 md:px-6">
         <div className="flex items-center">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden mr-2"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            <Menu className="h-5 w-5" />
-          </Button>
+          <SidebarTrigger className="mr-4" />
           <div className="relative max-w-md hidden md:flex items-center">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
